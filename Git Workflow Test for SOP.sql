@@ -1,6 +1,4 @@
-select *
-from dbt_mnguyen.confirmed_orders_detail cod 
-where cod.menu_id = 1002
-and cod.product_line = 'Plantry'
-and quantity > 10
-limit 400;
+select sum(total_order_value) total_revenue
+from analytics.fct_confirmed_orders fco 
+where fco.menu_id = 1038
+and fco.total_4s_dinner_mk >1
